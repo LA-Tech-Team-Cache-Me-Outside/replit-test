@@ -1,49 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Page Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome Home</title>
+  <link rel="stylesheet" href="css/example.css"> 
 </head>
 
-<!-- Link to CSS file -->
-<link href="css/example.css" rel="stylesheet" type="text/css">
-
 <body>
+  <div class="container">
+    <h1>Welcome to My Page</h1>
+    <p>What's Up Chat</p>
 
-<h1>This is a Heading</h1>
+    <!-- Dog GIF -->
+    <img src="images/head-tilt-puppy.gif" alt="Welcome Dog" class="main-image">
 
-<p>This is a paragraph.</p>
+    <!-- Greeting Message -->
+    <h2 id="greeting"></h2>
+  </div>
 
-<!-- Link other html files -->
-<li><a href="HomePage.html">This is a link to HomePage</a></li>
-
-
-
-<!-- Left article is just the name of the title, for the article -->
-<article class="article_example">
-      
-    <!-- The beginning of the left article page -->
-    <h3>EXAMPLE HEADER FOR NOW</h3>
-    
-    <div class="grid-container">
-      <div>
-        <p>
-            <!-- SHOW IMAGE -->
-           <img src="images/head-tilt-puppy.gif" width = "200" height = "200"/><br>
-        </p>
-      </div>
-      
-      <div>
-        <div class = "speech bubble">
-            <p class="info">
-                <strong>&nbsp;</strong>
-                THIS IS AN EXAMPLE HUGE PARAGRAPH
-            </p>
-        </div>
-    </div>
-</div>
-
-
+  <!-- JavaScript for Greeting (gets country using IP address) -->
+  <script>
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        const country = data.country_name;
+        document.getElementById('greeting').textContent = `Hello from ${country}!`;
+      })
+      .catch(error => {
+        console.error('Error fetching location:', error);
+        document.getElementById('greeting').textContent = `Hello, welcome!`;
+      });
+  </script>
 </body>
 </html>
-
-
