@@ -4,33 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Welcome Home</title>
-  <link rel="stylesheet" href="css/example.css"> 
+  <link rel="stylesheet" href="css/example.css">
+  <link rel="stylesheet" href="css/themes.css">
 </head>
 
 <body>
+  <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
   <div class="container">
     <h1>Welcome to My Page</h1>
     <p>What's Up Chat</p>
 
     <!-- Dog GIF -->
-    <img src="images/head-tilt-puppy.gif" alt="Welcome Dog" class="main-image">
+    <img src="https://awsbuckettest04212025.s3.us-east-2.amazonaws.com/images/head-tilt-puppy.gif" alt="Welcome Dog" class="main-image">
+
+    
+    <!-- The tabs that link to the other respective HTML files -->
+    <li><a href="HomePage.html">Home</a></li>
+    <li><a href="page2.html">Page2</a></li>
+    <li><a href="page3.html">Page3</a></li>
 
     <!-- Greeting Message -->
     <h2 id="greeting"></h2>
   </div>
 
-  <!-- JavaScript for Greeting (gets country using IP address) -->
-  <script>
-    fetch('https://ipapi.co/json/')
-      .then(response => response.json())
-      .then(data => {
-        const country = data.country_name;
-        document.getElementById('greeting').textContent = `Hello from ${country}!`;
-      })
-      .catch(error => {
-        console.error('Error fetching location:', error);
-        document.getElementById('greeting').textContent = `Hello, welcome!`;
-      });
-  </script>
+  <!-- Theme JavaScript -->
+  <script src="javascript/theme.js"></script>
+  
+  <!-- Greeting JavaScript -->
+  <script src="javascript/greeting.js"></script>
 </body>
 </html>
