@@ -1,49 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Home</title>
+    <link rel="stylesheet" href="css/simple.css">
+    <link rel="stylesheet" href="css/themes.css">
 </head>
 
-<!-- Link to CSS file -->
-<link href="css/example.css" rel="stylesheet" type="text/css">
-
 <body>
+    <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
-<h1>This is a Heading</h1>
-
-<p>This is a paragraph.</p>
-
-<!-- Link other html files -->
-<li><a href="HomePage.html">This is a link to HomePage</a></li>
-
-
-
-<!-- Left article is just the name of the title, for the article -->
-<article class="article_example">
-      
-    <!-- The beginning of the left article page -->
-    <h3>EXAMPLE HEADER FOR NOW</h3>
-    
-    <div class="grid-container">
-      <div>
-        <p>
-            <!-- SHOW IMAGE -->
-           <img src="images/head-tilt-puppy.gif" width = "200" height = "200"/><br>
-        </p>
-      </div>
-      
-      <div>
-        <div class = "speech bubble">
-            <p class="info">
-                <strong>&nbsp;</strong>
-                THIS IS AN EXAMPLE HUGE PARAGRAPH
-            </p>
+    <header>
+        <div class="container">
+            <h1>Home Page</h1>
         </div>
-    </div>
-</div>
+    </header>
+    
+    <nav class="secondary_header" id="menu">
+        <ul>
+            <li><a href="HomePage.html">Home</a></li>
+            <li><a href="ProjectPage.html">Project</a></li>
+            <li><a href="LinksPage.html">Links</a></li>
+        </ul>
+    </nav>
 
+    <main>
+        <div class="container">
+            
+            <p>My first paragraph.</p>
+            <p>This is Home Page</p>
+            
+            <!-- Dog GIF -->
+            <img src="https://awsbuckettest04212025.s3.us-east-2.amazonaws.com/images/head-tilt-puppy.gif" alt="Welcome Dog" class="main-image">
 
+        </div>
+    </main>
+
+    <!-- Theme JavaScript -->
+    <script src="javascript/theme.js"></script>
 </body>
+
 </html>
-
-

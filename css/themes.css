@@ -1,0 +1,58 @@
+:root {
+  --background-light: #f9f9f9;
+  --text-light: #333;
+  --heading-light: #555;
+  
+  --background-dark: #1a1a1a;
+  --text-dark: #ffffff;
+  --heading-dark: #e0e0e0;
+}
+
+/* Light theme (default) */
+body {
+  background-color: var(--background-light);
+  color: var(--text-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2 {
+  color: var(--heading-light);
+}
+
+/* Dark theme */
+body.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode h1,
+body.dark-mode h2 {
+  color: var(--heading-dark);
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #4a4a4a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: #666;
+}
+
+/* Dark mode styles for the button */
+body.dark-mode .theme-toggle {
+  background-color: #666;
+}
+
+body.dark-mode .theme-toggle:hover {
+  background-color: #888;
+} 
