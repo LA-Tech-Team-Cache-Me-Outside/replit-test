@@ -29,18 +29,78 @@
 
     <main>
         <div class="container">
-            
             <p>My first paragraph.</p>
             <p>This is Experience Page</p>
-            
-            <!-- Dog GIF -->
-            <img src="https://awsbuckettest04212025.s3.us-east-2.amazonaws.com/images/head-tilt-puppy.gif" alt="Welcome Dog" class="main-image">
 
+            <!-- Full Date & Time -->
+            <p id="clock" style="font-weight: bold;"></p>
+
+            <!-- Multiple Experience Bars -->
+            <div id="experience-bars">
+                <p class="experience" data-label="Started College" data-date="2018-08-20T00:00:00"></p>
+                <p class="experience" data-label="Graduated High School" data-date="2016-06-10T00:00:00"></p>
+                <p class="experience" data-label="Started New Job" data-date="2022-03-01T00:00:00"></p>
+            </div>
         </div>
     </main>
 
     <!-- Theme JavaScript -->
     <script src="javascript/theme.js"></script>
+
+    <!-- Clock & Experience JavaScript -->
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString(undefined, options);
+            const timeString = now.toLocaleTimeString();
+            document.getElementById("clock").textContent = `${dateString}, ${timeString}`;
+        }
+
+        function updateAllExperienceBars() {
+            const now = new Date();
+            const msInSec = 1000;
+            const msInMin = msInSec * 60;
+            const msInHour = msInMin * 60;
+            const msInDay = msInHour * 24;
+            const msInYear = msInDay * 365.25;
+            const msInMonth = msInDay * 30.44;
+
+            document.querySelectorAll(".experience").forEach(elem => {
+                const label = elem.dataset.label || "an event";
+                const startDate = new Date(elem.dataset.date);
+                let diff = now - startDate;
+
+                const years = Math.floor(diff / msInYear);
+                diff -= years * msInYear;
+
+                const months = Math.floor(diff / msInMonth);
+                diff -= months * msInMonth;
+
+                const days = Math.floor(diff / msInDay);
+                diff -= days * msInDay;
+
+                const hours = Math.floor(diff / msInHour);
+                diff -= hours * msInHour;
+
+                const minutes = Math.floor(diff / msInMin);
+                diff -= minutes * msInMin;
+
+                const seconds = Math.floor(diff / msInSec);
+
+                elem.textContent = `It's been ${years} years, ${months} months, ${days} days, ` +
+                                   `${hours} hours, ${minutes} minutes, and ${seconds} seconds since ${label}.`;
+            });
+        }
+
+        setInterval(() => {
+            updateClock();
+            updateAllExperienceBars();
+        }, 1000);
+
+        updateClock();
+        updateAllExperienceBars();
+    </script>
 </body>
 
 </html>

@@ -33,8 +33,14 @@
             <p>My first paragraph.</p>
             <p>This is Project Page</p>
             
-            <!-- Dog GIF -->
-            <img src="https://awsbuckettest04212025.s3.us-east-2.amazonaws.com/images/head-tilt-puppy.gif" alt="Welcome Dog" class="main-image">
+            <h1>Upload a File</h1>
+            <form action="upload.php" method="post" enctype="multipart/form-data" target="uploadFrame">
+                <input type="file" name="uploadedFile">
+                <input type="submit" value="Upload File">
+            </form>
+
+            <!-- Hidden iframe to process upload -->
+            <iframe name="uploadFrame" style="display: none;"></iframe>
 
         </div>
     </main>

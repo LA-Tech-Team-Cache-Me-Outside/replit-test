@@ -12,6 +12,17 @@
 <body>
     <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
+
+    <!-- LOGOUT BUTTON SCRIPT -->
+
+    <button onclick="logout()">Logout</button>
+    <script>
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = "Login.html";
+        }
+    </script>
+
     <header>
         <div class="container">
             <h1>Home Page</h1>
@@ -33,14 +44,28 @@
             <p>My first paragraph.</p>
             <p>This is Home Page</p>
             
-            <!-- Dog GIF -->
-            <img src="https://awsbuckettest04212025.s3.us-east-2.amazonaws.com/images/head-tilt-puppy.gif" alt="Welcome Dog" class="main-image">
+            
 
         </div>
     </main>
 
     <!-- Theme JavaScript -->
     <script src="javascript/theme.js"></script>
+
+    <!-- LOGIN SCRIPT -->
+    <script>
+        const user = localStorage.getItem('user');
+        if (!user) {
+            // If no user is found, redirect to login
+            window.location.href = "Login.html";
+        } else {
+            // Display a welcome message
+            const container = document.querySelector('.container');
+            const welcome = document.createElement('p');
+            welcome.textContent = `Welcome, ${user}!`;
+            container.prepend(welcome); // Add it at the top of the container
+        }
+    </script>
 </body>
 
 </html>
