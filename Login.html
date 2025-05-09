@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <input type="text" id="username" placeholder="Enter your username" />
+    <button onclick="login()">Login</button>
+    
+    <button onclick="createUser()">Create</button>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            if (username.trim()) {
+                localStorage.setItem('user', username); // or use sessionStorage
+                window.location.href = "HomePage.html";
+            } else {
+                alert("Please enter a username.");
+            }
+        }
+//directs the user to the signup page
+        function createUser() {
+                window.location.href = "SignUp.html";
+        }
+    </script>
+</body>
+</html>

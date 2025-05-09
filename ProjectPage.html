@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Home</title>
+    <link rel="stylesheet" href="css/simple.css">
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+
+<body>
+    <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+    <header>
+        <div class="container">
+            <h1>Project Page</h1>
+        </div>
+    </header>
+    
+    <nav class="secondary_header" id="menu">
+        <ul>
+            <li><a href="HomePage.html">Home</a></li>
+            <li><a href="ProjectPage.html">Project</a></li>
+            <li><a href="Experience.html">Experience</a></li>
+            <li><a href="LinksPage.html">Links</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            
+            <p>My first paragraph.</p>
+            <p>This is Project Page</p>
+            
+            <h1>Upload a File</h1>
+            <form action="upload.php" method="post" enctype="multipart/form-data" target="uploadFrame">
+                <input type="file" name="uploadedFile">
+                <input type="submit" value="Upload File">
+            </form>
+
+            <!-- Hidden iframe to process upload -->
+            <iframe name="uploadFrame" style="display: none;"></iframe>
+
+        </div>
+    </main>
+
+    <!-- Theme JavaScript -->
+    <script src="javascript/theme.js"></script>
+</body>
+
+</html>
