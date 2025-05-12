@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/simple.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    
+    <main>
+        <div class="container">
+            <p>Username</p><input type="text" id="username" placeholder="Enter your username" />
+            <p>Password</p><input type="password" id="password" placeholder="Enter your password" />
+        </div>
+        <div class="container">
+            <button onclick="SignUp()">Sign Up</button>
+            <button onclick="goToLogin()">Back to Login</button> <!-- New button -->
+        </div>
+    </main>
+
+    <script>
+    function SignUp() {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        
+        if (username && password) {
+            if (!localStorage.getItem(username)) {
+                localStorage.setItem(username, password); // Store username and password
+                localStorage.setItem('user', username); // Set the current user
+                alert("User registered successfully!");
+                window.location.href = "HomePage.html"; // Redirect to Home page
+            } else {
+                alert("Username already exists. Please choose another.");
+            }
+        } else {
+            alert("Please enter a valid username and password.");
+        }
+    }
+
+    function goToLogin() {
+        window.location.href = "Login.html"; // Redirect back to Login
+    }
+    </script>
+
+    <script src="javascript/theme.js"></script>
+</body>
+
+</html>

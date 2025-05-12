@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+<body>
+    <h1>Registered Users</h1>
+    <select id="userList"></select> <!-- Dropdown for user selection -->
+    <br><br>
+    <button onclick="deleteUser()">Delete Selected User</button>
+    <button onclick="deleteAllUsers()">Delete All Users</button>
+    <button onclick="refreshList()">Refresh List</button>
+    <button onclick="goBack()">Back to Login</button>
+
+    <script>
+        const userList = document.getElementById('userList');
+
+        // Populate the dropdown with usernames from localStorage
+        function populateList() {
+            userList.innerHTML = ''; // Clear previous entries
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key !== 'user') { // Exclude the 'user' key
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = key;
+                    userList.appendChild(option);
+                }
+            }
+        }
+
+        populateList(); // Initial population
+
+        function deleteUser() {
+            const selectedUser = userList.value;
+            if (selectedUser) {
+                localStorage.removeItem(selectedUser);
+                alert(`${selectedUser} has been deleted.`);
+                populateList(); // Refresh the list after deletion
+            } else {
+                alert("No user selected.");
+            }
+        }
+
+        function deleteAllUsers() {
+            if (confirm("Are you sure you want to delete all users? This cannot be undone.")) {
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key !== 'user') {
+                        localStorage.removeItem(key);
+                    }
+                }
+                alert("All users have been deleted.");
+                populateList(); // Refresh the list after clearing
+            }
+        }
+
+        function refreshList() {
+            populateList(); // Simply refreshes the list
+        }
+
+        function goBack() {
+            window.location.href = "Login.html";
+        }
+    </script>
+</body>
+</html>
