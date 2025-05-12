@@ -1,78 +1,71 @@
-<!-- -------------------------------------------------------------------- -->
-<!--
-
--->
-<!-- -------------------------------------------------------------------- -->
-
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="homePage.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Home</title>
+    <link rel="stylesheet" href="css/simple.css">
+    <link rel="stylesheet" href="css/themes.css">
 </head>
+
 <body>
-  <nav id = "desktopNav">
-    <div class = "logo">Portfolio</div>
-    <div>
-      <ul class = "nav-links">
-        <li><a href="#homePage.html">Home</a></li>
-        <li><a href="#projects.html">Projects</a></li>
-        <li><a href="#contact.html">Contact Me</a></li>
-      </ul>
-    </div>
-  </nav>
+    <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
-  <nav id = "hamburgerNav">
-    <div id = "hamburgerNavWrapper">
-    <div class = "logo">Portfolio</div>
-    <div class = "hamburgerMenu">
-      <div class = "hamburgerIcon" onclick = "toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
 
-      <div class = "menuLinks">
-        <!-- <li><a href="#landing" onclick = "toggleMenu()">Home</a></li> -->
-        <li><a href="#homePage.html" onclick = "toggleMenu()">Home</a>></li>
-        <li><a href="#projects.html" onclick = "toggleMenu()">Projects</a></li>
-        <li><a href="#contact.html" onclick = "toggleMenu()">Contact Me</a></li>
-      </div>
-    </div>
-    </div>
-  </nav>
+    <!-- LOGOUT BUTTON SCRIPT -->
 
-      <div class = "about">
-          <div class = "photoSide">
-            <input type="file" id="imageInput" accept="image/*">
-            <br>
-            <img id="imagePreview" alt="Uploaded image will appear here" style="max-width: 100%; display: none;">            
-          </div>
-          <div class = "textSide"> 
-              <h1>About Me</h1>
-                <input type="file" id="fileInput" accept=".txt" />
-                <pre id="output"></pre>
+    <button onclick="logout()">Logout</button>
+    <script>
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = "Login.html";
+        }
+    </script>
 
-          </div>
-      </div>
-  </section>
-
-  <footer>
-    <nav id = "desktopNav">
-      <div class = "logo">Portfolio</div>
-      <div>
-        <ul class = "nav-links">
-          <li><a href="#homePage.html">Home</a></li>
-          <li><a href="#projects.html">Projects</a></li>
-          <li><a href="#contact.html">Contact Me</a></li>
+    <header>
+        <div class="container">
+            <h1>Home Page</h1>
+        </div>
+    </header>
+    
+    <nav class="secondary_header" id="menu">
+        <ul>
+            <li><a href="HomePage.html">Home</a></li>
+            <li><a href="ProjectPage.html">Project</a></li>
+            <li><a href="Experience.html">Experience</a></li>
+            <li><a href="LinksPage.html">Links</a></li>
         </ul>
-      </div>
     </nav>
-  </footer>
 
+    <main>
+        <div class="container">
+            
+            <p>My first paragraph.</p>
+            <p>This is Home Page</p>
+            
+            
 
-  <script src="homePage.js"></script>
+        </div>
+    </main>
+
+    <!-- Theme JavaScript -->
+    <script src="javascript/theme.js"></script>
+
+    <!-- LOGIN SCRIPT -->
+    <script>
+        const user = localStorage.getItem('user');
+        if (!user) {
+            // If no user is found, redirect to login
+            window.location.href = "Login.html";
+        } else {
+            // Display a welcome message
+            const container = document.querySelector('.container');
+            const welcome = document.createElement('p');
+            welcome.textContent = `Welcome, ${user}!`;
+            container.prepend(welcome); // Add it at the top of the container
+        }
+    </script>
 </body>
+
 </html>
