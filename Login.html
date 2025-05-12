@@ -7,23 +7,37 @@
 <body>
     <h1>Login</h1>
     <input type="text" id="username" placeholder="Enter your username" />
+    <input type="password" id="password" placeholder="Enter your password" />
     <button onclick="login()">Login</button>
-    
     <button onclick="createUser()">Create</button>
+    <button onclick="viewAllUsers()">View All Users</button> <!-- New button -->
 
     <script>
         function login() {
-            const username = document.getElementById('username').value;
-            if (username.trim()) {
-                localStorage.setItem('user', username); // or use sessionStorage
-                window.location.href = "HomePage.html";
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            if (username && password) {
+                const storedPassword = localStorage.getItem(username);
+
+                if (storedPassword === password) {
+                    localStorage.setItem('user', username); // Set the session to the current user
+                    alert("Login successful!");
+                    window.location.href = "HomePage.html";
+                } else {
+                    alert("Invalid username or password.");
+                }
             } else {
-                alert("Please enter a username.");
+                alert("Please enter both username and password.");
             }
         }
-//directs the user to the signup page
+
         function createUser() {
-                window.location.href = "SignUp.html";
+            window.location.href = "SignUp.html";
+        }
+
+        function viewAllUsers() {
+            window.location.href = "UserList.html";
         }
     </script>
 </body>
