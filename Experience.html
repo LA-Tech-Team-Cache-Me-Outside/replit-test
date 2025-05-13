@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience</title>
+    <link rel="stylesheet" href="homePage.css" />
     <link rel="stylesheet" href="css/simple.css">
     <link rel="stylesheet" href="css/themes.css">
     <script  src="javascript/carousel.js"></script>
@@ -12,24 +13,41 @@
 
 <body>
     <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
-
-    <header>
-        <div class="container">
-            <h1>Experience Page</h1>
-        </div>
-    </header>
     
-    <nav class="secondary_header" id="menu">
-        <ul>
-            <li><a href="HomePage.html">Home</a></li>
-            <li><a href="ProjectPage.html">Project</a></li>
+    <nav id = "desktopNav">
+        <div class = "logo">Portfolio</div>
+        <div>
+          <ul class = "nav-links">
+            <li><a href="homePage2.html">Home</a></li>
             <li><a href="Experience.html">Experience</a></li>
-            <li><a href="LinksPage.html">Links</a></li>
-        </ul>
-    </nav>
+            <li><a href="ProjectPage.html">Projects</a></li>
+            <li><a href="LinksPage.html">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <nav id = "hamburgerNav">
+        <div id = "hamburgerNavWrapper">
+        <div class = "logo">Portfolio</div>
+        <div class = "hamburgerMenu">
+          <div class = "hamburgerIcon" onclick = "toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class = "menuLinks">
+            <!-- <li><a href="#landing" onclick = "toggleMenu()">Home</a></li> -->
+            <li><a href="#homePage.html" onclick = "toggleMenu()">Home</a>></li>
+            <li><a href="#projects.html" onclick = "toggleMenu()">Projects</a></li>
+            <li><a href="#contact.html" onclick = "toggleMenu()">Contact Me</a></li>
+          </div>
+        </div>
+        </div>
+      </nav>
 
     <main>
-    <main>
+    </main>
         <div class="container">
             <p>My first paragraph.</p>
             <p>This is Experience Page</p>
@@ -45,6 +63,20 @@
                 <p class="experience" data-label="Started New Job" data-date="2022-03-01T00:00:00"></p>
             </div>
         </div>
+
+        <footer>
+            <nav id = "desktopNav">
+              <div class = "logo">Portfolio</div>
+              <div>
+                <ul class = "nav-links">
+                  <li><a href="#homePage.html">Home</a></li>
+                  <li><a href="#projects.html">Projects</a></li>
+                  <li><a href="#contact.html">Contact Me</a></li>
+                </ul>
+              </div>
+            </nav>
+          </footer>
+        
     </main>
 
     <!-- Theme JavaScript -->
@@ -104,6 +136,11 @@
         updateClock();
         updateAllExperienceBars();
     </script>
+
+    <script src="homePage.js"></script>
 </body>
 
 </html>
+
+
+
