@@ -1,60 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Home</title>
-    <link rel="stylesheet" href="homePage.css" />
+    <title>Projects</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/homePage.css">
     <link rel="stylesheet" href="css/simple.css">
     <link rel="stylesheet" href="css/themes.css">
 </head>
 
 <body>
+
+    <!-- Dark Mode Toggle -->
     <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
-     <nav id = "desktopNav">
-        <div class = "logo">Portfolio</div>
-        <div>
-          <ul class = "nav-links">
+    <!-- Desktop Navigation -->
+    <nav id="desktopNav">
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
             <li><a href="homePage2.html">Home</a></li>
             <li><a href="Experience.html">Experience</a></li>
             <li><a href="ProjectPage.html">Projects</a></li>
             <li><a href="LinksPage.html">Contact Me</a></li>
-          </ul>
+        </ul>
+        <button onclick="logout()">Logout</button>
+    </nav>
+
+    <!-- Logout Script -->
+    <script>
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = "Login.html";
+        }
+    </script>
+
+    <!-- Hamburger Navigation -->
+    <nav id="hamburgerNav">
+        <div id="hamburgerNavWrapper">
+            <div class="logo">Portfolio</div>
+            <div class="hamburgerMenu">
+                <div class="hamburgerIcon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="menuLinks">
+                    <li><a href="#homePage.html" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="#projects.html" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="#contact.html" onclick="toggleMenu()">Contact Me</a></li>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
 
-      <nav id = "hamburgerNav">
-        <div id = "hamburgerNavWrapper">
-        <div class = "logo">Portfolio</div>
-        <div class = "hamburgerMenu">
-          <div class = "hamburgerIcon" onclick = "toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class = "menuLinks">
-            <!-- <li><a href="#landing" onclick = "toggleMenu()">Home</a></li> -->
-            <li><a href="#homePage.html" onclick = "toggleMenu()">Home</a>></li>
-            <li><a href="#projects.html" onclick = "toggleMenu()">Projects</a></li>
-            <li><a href="#contact.html" onclick = "toggleMenu()">Contact Me</a></li>
-          </div>
-        </div>
-        </div>
-      </nav>
-
-            <button class="theme-toggle" onclick="toggleDarkMode()">
-                🌙 Dark Mode
-            </button>
-
+    <!-- Main Content -->
     <main>
         <div class="container">
-            
             <p>My first paragraph.</p>
             <p>This is Project Page</p>
-            
+
+            <!-- File Upload Section -->
             <h1>Upload a File</h1>
             <form action="upload.php" method="post" enctype="multipart/form-data" target="uploadFrame">
                 <input type="file" name="uploadedFile">
@@ -63,26 +70,12 @@
 
             <!-- Hidden iframe to process upload -->
             <iframe name="uploadFrame" style="display: none;"></iframe>
-
         </div>
-
-        <footer>
-            <nav id = "desktopNav">
-              <div class = "logo">Portfolio</div>
-              <div>
-                <ul class = "nav-links">
-                  <li><a href="#homePage.html">Home</a></li>
-                  <li><a href="#projects.html">Projects</a></li>
-                  <li><a href="#contact.html">Contact Me</a></li>
-                </ul>
-              </div>
-            </nav>
-          </footer>
     </main>
 
-    <!-- Theme JavaScript -->
+    <!-- Theme and Main Scripts -->
     <script src="javascript/theme.js"></script>
     <script src="homePage.js"></script>
-</body>
 
+</body>
 </html>

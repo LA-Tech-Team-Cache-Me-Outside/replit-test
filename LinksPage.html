@@ -1,56 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="homePage.css" />
-  <link rel="stylesheet" href="css/simple.css" />
-  <link rel="stylesheet" href="css/themes.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="css/simple.css">
+    <link rel="stylesheet" href="css/themes.css">
 </head>
+
 <body>
-  <nav id = "desktopNav">
-    <div class = "logo">Portfolio</div>
-    <div>
-      <ul class = "nav-links">
-        <li><a href="homePage2.html">Home</a></li>
-        <li><a href="Experience.html">Experience</a></li>
-        <li><a href="ProjectPage.html">Projects</a></li>
-        <li><a href="LinksPage.html">Contact Me</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <nav id = "hamburgerNav">
-    <div id = "hamburgerNavWrapper">
-    <div class = "logo">Portfolio</div>
-    <div class = "hamburgerMenu">
-      <div class = "hamburgerIcon" onclick = "toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <!-- Desktop Navigation -->
+    <nav id="desktopNav">
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="homePage2.html">Home</a></li>
+            <li><a href="Experience.html">Experience</a></li>
+            <li><a href="ProjectPage.html">Projects</a></li>
+            <li><a href="LinksPage.html">Contact Me</a></li>
+        </ul>
+        <button onclick="logout()">Logout</button>
+    </nav>
 
-      <div class = "menuLinks">
-        <!-- <li><a href="#landing" onclick = "toggleMenu()">Home</a></li> -->
-        <li><a href="#homePage.html" onclick = "toggleMenu()">Home</a>></li>
-        <li><a href="#projects.html" onclick = "toggleMenu()">Projects</a></li>
-        <li><a href="#contact.html" onclick = "toggleMenu()">Contact Me</a></li>
-      </div>
-    </div>
-    </div>
-  </nav>
-    
+    <!-- Logout Script -->
+    <script>
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = "Login.html";
+        }
+    </script>
+
+    <!-- Hamburger Navigation -->
+    <nav id="hamburgerNav">
+        <div id="hamburgerNavWrapper">
+            <div class="logo">Portfolio</div>
+            <div class="hamburgerMenu">
+                <div class="hamburgerIcon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="menuLinks">
+                    <li><a href="#homePage.html" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="#projects.html" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="#contact.html" onclick="toggleMenu()">Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Links</h1>
+        <section class="links-grouped">
+            <div class="links">
+                <a href="https://www.linkedin.com" target="_blank">
+                    <img src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/linkedin-logo.png" alt="LinkedIn" width="100">
+                </a>
+                <p>LinkedIn</p>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com" target="_blank">
+                    <img src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/github-logo.png" alt="Github" width="100">
+                </a>
+                <p>Github</p>
+            </div>
+
+            <div class="links">
+                <a href="mailto:example@gmail.com" target="_blank">
+                    <img src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/email-logo.png" alt="email" width="100">
+                </a>
+                <p>Email</p>
+            </div>
+
+            <div class="links">
+                <a href="mailto:example@gmail.com" target="_blank">
+                    <img src="placeholder" alt="holder" width="100">
+                </a>
+                <p>Placeholder</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Theme and Main Scripts -->
+    <script src="javascript/theme.js"></script>
+    <script src="homePage.js"></script>
 
     <style>
-        /* For Links Page css, might change to a .css file */
+        /* Links Page Styles */
         .links-grouped {
             display: flex;
             gap: 100px;
             justify-content: center;
             align-items: center;
         }
-
         .links {
             display: flex;
             gap: 10px;
@@ -59,74 +109,5 @@
         }
     </style>
 
-    <body>
-        <button class="theme-toggle" onclick="toggleDarkMode()">
-            🌙 Dark Mode
-        </button>
-
-        <main>
-            <h1>Links</h1>
-
-            <section class="links-grouped">
-                <div class="links">
-                    <a href="https://www.linkedin.com" target="_blank">
-                        <img
-                            src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/linkedin-logo.png"
-                            alt="LinkedIn"
-                            width="100"
-                        />
-                    </a>
-                    <p>LinkedIn</p>
-                </div>
-
-                <div class="links">
-                    <a href="https://github.com"target="_blank">
-                        <img
-                            src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/github-logo.png"
-                            alt="Github"
-                            width="100"
-                        />
-                    </a>
-                    <p>Github</p>
-                </div>
-
-                <div class="links">
-                    <a href="mailto:example@gmail.com" target="_blank">
-                        <img
-                            src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/email-logo.png"
-                            alt="email"
-                            width="100"
-                        />
-                    </a>
-                    <p>email</p>
-                </div>
-
-                <div class="links">
-                    <a href="mailto:example@gmail.com" target="_blank">
-                        <img src="placeholder" alt="holder" width="100" />
-                    </a>
-                    <p>placeholder</p>
-                </div>
-            </section>
-
-            <footer>
-                <nav id = "desktopNav">
-                  <div class = "logo">Portfolio</div>
-                  <div>
-                    <ul class = "nav-links">
-                      <li><a href="#homePage.html">Home</a></li>
-                      <li><a href="#projects.html">Projects</a></li>
-                      <li><a href="#contact.html">Contact Me</a></li>
-                    </ul>
-                  </div>
-                </nav>
-              </footer>
-            
-        </main>
-
-        <!-- Theme JavaScript -->
-        <script src="javascript/theme.js"></script>
-
-        <script src="homePage.js"></script>
-    </body>
+</body>
 </html>

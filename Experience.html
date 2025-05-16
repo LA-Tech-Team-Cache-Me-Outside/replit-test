@@ -1,86 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience</title>
-    <link rel="stylesheet" href="homePage.css" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/homePage.css">
     <link rel="stylesheet" href="css/simple.css">
     <link rel="stylesheet" href="css/themes.css">
-    <script  src="javascript/carousel.js"></script>
+
+    <!-- Scripts -->
+    <script src="javascript/carousel.js"></script>
 </head>
 
 <body>
+
+    <!-- Dark Mode Toggle -->
     <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
-    
-    <nav id = "desktopNav">
-        <div class = "logo">Portfolio</div>
-        <div>
-          <ul class = "nav-links">
+
+    <!-- Desktop Navigation -->
+    <nav id="desktopNav">
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
             <li><a href="homePage2.html">Home</a></li>
             <li><a href="Experience.html">Experience</a></li>
             <li><a href="ProjectPage.html">Projects</a></li>
             <li><a href="LinksPage.html">Contact Me</a></li>
-          </ul>
-        </div>
-      </nav>
+        </ul>
+        <button onclick="logout()">Logout</button>
+    </nav>
 
-      <nav id = "hamburgerNav">
-        <div id = "hamburgerNavWrapper">
-        <div class = "logo">Portfolio</div>
-        <div class = "hamburgerMenu">
-          <div class = "hamburgerIcon" onclick = "toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+    <!-- Logout Script -->
+    <script>
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = "Login.html";
+        }
+    </script>
 
-          <div class = "menuLinks">
-            <!-- <li><a href="#landing" onclick = "toggleMenu()">Home</a></li> -->
-            <li><a href="#homePage.html" onclick = "toggleMenu()">Home</a>></li>
-            <li><a href="#projects.html" onclick = "toggleMenu()">Projects</a></li>
-            <li><a href="#contact.html" onclick = "toggleMenu()">Contact Me</a></li>
-          </div>
+    <!-- Hamburger Navigation -->
+    <nav id="hamburgerNav">
+        <div id="hamburgerNavWrapper">
+            <div class="logo">Portfolio</div>
+            <div class="hamburgerMenu">
+                <div class="hamburgerIcon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="menuLinks">
+                    <li><a href="#homePage.html" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="#projects.html" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="#contact.html" onclick="toggleMenu()">Contact Me</a></li>
+                </ul>
+            </div>
         </div>
-        </div>
-      </nav>
+    </nav>
 
+    <!-- Main Content -->
     <main>
-    </main>
         <div class="container">
             <p>My first paragraph.</p>
-            <p>This is Experience Page</p>
-            <img id="carousel-image" height="300" width="500"/>
-    
+            <p>This is the Experience Page</p>
+
+            <!-- Image Carousel -->
+            <img id="carousel-image" height="300" width="500">
+
             <!-- Full Date & Time -->
             <p id="clock" style="font-weight: bold;"></p>
 
-            <!-- Multiple Experience Bars -->
+            <!-- Experience Bars -->
             <div id="experience-bars">
                 <p class="experience" data-label="Started College" data-date="2018-08-20T00:00:00"></p>
                 <p class="experience" data-label="Graduated High School" data-date="2016-06-10T00:00:00"></p>
                 <p class="experience" data-label="Started New Job" data-date="2022-03-01T00:00:00"></p>
             </div>
         </div>
-
-        <footer>
-            <nav id = "desktopNav">
-              <div class = "logo">Portfolio</div>
-              <div>
-                <ul class = "nav-links">
-                  <li><a href="#homePage.html">Home</a></li>
-                  <li><a href="#projects.html">Projects</a></li>
-                  <li><a href="#contact.html">Contact Me</a></li>
-                </ul>
-              </div>
-            </nav>
-          </footer>
-        
     </main>
-
-    <!-- Theme JavaScript -->
-    <script src="javascript/theme.js"></script>
 
     <!-- Clock & Experience JavaScript -->
     <script>
@@ -137,10 +134,9 @@
         updateAllExperienceBars();
     </script>
 
+    <!-- Theme and Main Scripts -->
+    <script src="javascript/theme.js"></script>
     <script src="homePage.js"></script>
+
 </body>
-
 </html>
-
-
-
