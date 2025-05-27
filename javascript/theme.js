@@ -1,3 +1,30 @@
+// Initialize theme when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    loadThemePreference();
+
+        const openBtn = document.getElementById("createProjectsBtn");
+        const closeBtn = document.getElementById("closeProjectEditorBtn");
+        const createProjOverlay = document.getElementById("createProjectOverlay");
+
+        if (openBtn && closeBtn && createProjOverlay) {
+            openBtn.addEventListener("click", () => {
+                createProjOverlay.style.display = "flex";
+                console.log("Create Projects button clicked");
+
+            });
+
+            closeBtn.addEventListener("click", () => {
+                createProjOverlay.style.display = "none";
+            });
+
+            window.addEventListener("click", (e) => {
+                if (e.target === createProjOverlay) {
+                    createProjOverlay.style.display = "none";
+                }
+            });
+        }
+    });
+
 // Function to toggle dark mode
 function toggleDarkMode() {
     const body = document.body;

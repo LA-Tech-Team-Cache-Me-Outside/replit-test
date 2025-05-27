@@ -16,6 +16,8 @@
 
 <body>
 
+    <p id="greeting" style="font-weight: bold;"></p>
+
     <!-- Dark Mode Toggle -->
     <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
@@ -49,10 +51,11 @@
                     <span></span>
                     <span></span>
                 </div>
-                <ul class="menuLinks">
-                    <li><a href="#homePage.html" onclick="toggleMenu()">Home</a></li>
-                    <li><a href="#projects.html" onclick="toggleMenu()">Projects</a></li>
-                    <li><a href="#contact.html" onclick="toggleMenu()">Contact Me</a></li>
+                <ul class="nav-links">
+                    <li><a href="HomePage.html">Home</a></li>
+                    <li><a href="Experience.html">Experience</a></li>
+                    <li><a href="ProjectPage.html">Projects</a></li>
+                    <li><a href="LinksPage.html">Contact Me</a></li>
                 </ul>
             </div>
         </div>
@@ -61,20 +64,41 @@
     <!-- Main Content -->
     <main>
         <div class="container">
-            <p>My first paragraph.</p>
-            <p>This is the Experience Page</p>
-
-            <!-- Image Carousel -->
-            <img id="carousel-image" height="300" width="500">
 
             <!-- Full Date & Time -->
             <p id="clock" style="font-weight: bold;"></p>
 
+            <p><br></p>
+
             <!-- Experience Bars -->
             <div id="experience-bars">
+
+                <!-- Image Carousel -->
+                <img id="carousel-image" height="300" width="500">
+
+                <p><br></p>
+
+                <p class="experience" style="font-weight:;" data-label="Started New Job" data-date="2022-03-01T00:00:00"></p>
+
+                <p><br></p>
+
+                <img src="images/College.jpg" height="300" width="500" alt="College">
+
+                <p><br></p>
+                
                 <p class="experience" data-label="Started College" data-date="2018-08-20T00:00:00"></p>
+
+                <p><br></p>
+
+                <img src="images/HighSchool.jpg" height="300" width="500" alt="High School">
+
+                <p><br></p>
+                
                 <p class="experience" data-label="Graduated High School" data-date="2016-06-10T00:00:00"></p>
-                <p class="experience" data-label="Started New Job" data-date="2022-03-01T00:00:00"></p>
+
+                <p><br></p>
+
+                
             </div>
         </div>
     </main>
@@ -101,6 +125,12 @@
             document.querySelectorAll(".experience").forEach(elem => {
                 const label = elem.dataset.label || "an event";
                 const startDate = new Date(elem.dataset.date);
+                const exactDate = startDate.toLocaleDateString(undefined, {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
                 let diff = now - startDate;
 
                 const years = Math.floor(diff / msInYear);
@@ -121,7 +151,8 @@
                 const seconds = Math.floor(diff / msInSec);
 
                 elem.textContent = `It's been ${years} years, ${months} months, ${days} days, ` +
-                                   `${hours} hours, ${minutes} minutes, and ${seconds} seconds since ${label}.`;
+                                   `${hours} hours, ${minutes} minutes, and ${seconds} seconds since ${label} ` +
+                                   `on ${exactDate}.`;
             });
         }
 
@@ -137,6 +168,14 @@
     <!-- Theme and Main Scripts -->
     <script src="javascript/theme.js"></script>
     <script src="homePage.js"></script>
+
+    <script>
+        const user = localStorage.getItem('user');
+        if (user) {
+            document.getElementById('greeting').textContent = `Hello, ${user}!`;
+        }
+    </script>
+
 
 </body>
 </html>

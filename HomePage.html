@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
-  
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/homePage.css">
   <link rel="stylesheet" href="css/simple.css">
@@ -13,6 +13,9 @@
 
 <body>
 
+  <p id="greeting" style="font-weight: bold;"></p>
+
+
   <!-- Dark Mode Toggle -->
   <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
@@ -20,10 +23,10 @@
   <nav id="desktopNav">
     <div class="logo">Portfolio</div>
     <ul class="nav-links">
-      <li><a href="HomePage.html">Home</a></li>
-      <li><a href="Experience.html">Experience</a></li>
-      <li><a href="ProjectPage.html">Projects</a></li>
-      <li><a href="LinksPage.html">Contact Me</a></li>
+        <li><a href="HomePage.html">Home</a></li>
+        <li><a href="Experience.html">Experience</a></li>
+        <li><a href="ProjectPage.html">Projects</a></li>
+        <li><a href="LinksPage.html">Contact Me</a></li>
     </ul>
     <button onclick="logout()">Logout</button>
   </nav>
@@ -46,10 +49,11 @@
           <span></span>
           <span></span>
         </div>
-        <ul class="menuLinks">
-          <li><a href="#homePage.html" onclick="toggleMenu()">Home</a></li>
-          <li><a href="#projects.html" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact.html" onclick="toggleMenu()">Contact Me</a></li>
+        <ul class="nav-links">
+            <li><a href="HomePage.html">Home</a></li>
+            <li><a href="Experience.html">Experience</a></li>
+            <li><a href="ProjectPage.html">Projects</a></li>
+            <li><a href="LinksPage.html">Contact Me</a></li>
         </ul>
       </div>
     </div>
@@ -60,18 +64,30 @@
     <div class="photoSide">
       <input type="file" id="imageInput" accept="image/*">
       <br>
-      <img id="imagePreview" alt="Uploaded image will appear here" style="max-width: 100%; display: none;">            
+      <img id="imagePreview" alt="Uploaded image will appear here" style="max-width: 100%; display: none;">
+      <button id="deleteImageBtn" style="display: none;">Delete Image</button>
     </div>
+
     <div class="textSide">
       <h1>About Me</h1>
       <input type="file" id="fileInput" accept=".txt">
       <pre id="output"></pre>
+      <button id="deleteTextBtn" style="display: none;">Delete Text</button>
     </div>
+
   </section>
 
   <!-- Scripts -->
   <script src="javascript/theme.js"></script>
-  <script src="homePage.js"></script>
+  <script src="javascript/homePage.js"></script>
+
+  <script>
+      const user = localStorage.getItem('user');
+      if (user) {
+          document.getElementById('greeting').textContent = `Hello, ${user}!`;
+      }
+  </script>
+
 
 </body>
 </html>
