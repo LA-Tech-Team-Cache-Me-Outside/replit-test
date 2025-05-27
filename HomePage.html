@@ -1,71 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Home</title>
-    <link rel="stylesheet" href="css/simple.css">
-    <link rel="stylesheet" href="css/themes.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/homePage.css">
+  <link rel="stylesheet" href="css/simple.css">
+  <link rel="stylesheet" href="css/themes.css">
 </head>
 
 <body>
-    <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+  <p id="greeting" style="font-weight: bold;"></p>
 
 
-    <!-- LOGOUT BUTTON SCRIPT -->
+  <!-- Dark Mode Toggle -->
+  <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
+  <!-- Desktop Navigation -->
+  <nav id="desktopNav">
+    <div class="logo">Portfolio</div>
+    <ul class="nav-links">
+        <li><a href="HomePage.html">Home</a></li>
+        <li><a href="Experience.html">Experience</a></li>
+        <li><a href="ProjectPage.html">Projects</a></li>
+        <li><a href="LinksPage.html">Contact Me</a></li>
+    </ul>
     <button onclick="logout()">Logout</button>
-    <script>
-        function logout() {
-            localStorage.removeItem('user');
-            window.location.href = "Login.html";
-        }
-    </script>
+  </nav>
 
-    <header>
-        <div class="container">
-            <h1>Home Page</h1>
+  <!-- Logout Script -->
+  <script>
+    function logout() {
+      localStorage.removeItem('user');
+      window.location.href = "Login.html";
+    }
+  </script>
+
+  <!-- Hamburger Navigation -->
+  <nav id="hamburgerNav">
+    <div id="hamburgerNavWrapper">
+      <div class="logo">Portfolio</div>
+      <div class="hamburgerMenu">
+        <div class="hamburgerIcon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    </header>
-    
-    <nav class="secondary_header" id="menu">
-        <ul>
+        <ul class="nav-links">
             <li><a href="HomePage.html">Home</a></li>
-            <li><a href="ProjectPage.html">Project</a></li>
             <li><a href="Experience.html">Experience</a></li>
-            <li><a href="LinksPage.html">Links</a></li>
+            <li><a href="ProjectPage.html">Projects</a></li>
+            <li><a href="LinksPage.html">Contact Me</a></li>
         </ul>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
-    <main>
-        <div class="container">
-            
-            <p>My first paragraph.</p>
-            <p>This is Home Page</p>
-            
-            
+  <!-- About Section -->
+  <section class="about">
+    <div class="photoSide">
+      <input type="file" id="imageInput" accept="image/*">
+      <br>
+      <img id="imagePreview" alt="Uploaded image will appear here" style="max-width: 100%; display: none;">
+      <button id="deleteImageBtn" style="display: none;">Delete Image</button>
+    </div>
 
-        </div>
-    </main>
+    <div class="textSide">
+      <h1>About Me</h1>
+      <input type="file" id="fileInput" accept=".txt">
+      <pre id="output"></pre>
+      <button id="deleteTextBtn" style="display: none;">Delete Text</button>
+    </div>
 
-    <!-- Theme JavaScript -->
-    <script src="javascript/theme.js"></script>
+  </section>
 
-    <!-- LOGIN SCRIPT -->
-    <script>
-        const user = localStorage.getItem('user');
-        if (!user) {
-            // If no user is found, redirect to login
-            window.location.href = "Login.html";
-        } else {
-            // Display a welcome message
-            const container = document.querySelector('.container');
-            const welcome = document.createElement('p');
-            welcome.textContent = `Welcome, ${user}!`;
-            container.prepend(welcome); // Add it at the top of the container
-        }
-    </script>
+  <!-- Scripts -->
+  <script src="javascript/theme.js"></script>
+  <script src="javascript/homePage.js"></script>
+
+  <script>
+      const user = localStorage.getItem('user');
+      if (user) {
+          document.getElementById('greeting').textContent = `Hello, ${user}!`;
+      }
+  </script>
+
+
 </body>
-
 </html>

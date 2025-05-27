@@ -68,3 +68,67 @@ h2
     color: #555;
     margin-top: 15px;
 }
+
+
+.left-align {
+    text-align: left;
+}
+
+
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/*Create Projects Button*/
+.createProj-image-button {
+    width: 100px; /* or any size you prefer */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.createProj-image-button:hover {
+    transform: scale(1.05);
+}
+
+/* Create Project overlay (full-screen background) */
+.createProj-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* createProj content box */
+.createProj-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+/* Close button (X in top right) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #000;
+}

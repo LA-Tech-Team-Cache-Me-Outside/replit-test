@@ -1,88 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Home</title>
-    <link rel="stylesheet" href="homePage.css" />
+    <title>Projects</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/homePage.css">
     <link rel="stylesheet" href="css/simple.css">
     <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/projects.css">
 </head>
 
 <body>
+
+    <p id="greeting" style="font-weight: bold;"></p>
+
+
+    <!-- Dark Mode Toggle -->
     <button class="theme-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
-     <nav id = "desktopNav">
-        <div class = "logo">Portfolio</div>
-        <div>
-          <ul class = "nav-links">
-            <li><a href="homePage2.html">Home</a></li>
+    <!-- Desktop Navigation -->
+    <nav id="desktopNav">
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="HomePage.html">Home</a></li>
             <li><a href="Experience.html">Experience</a></li>
             <li><a href="ProjectPage.html">Projects</a></li>
             <li><a href="LinksPage.html">Contact Me</a></li>
-          </ul>
-        </div>
-      </nav>
+        </ul>
+        <button onclick="logout()">Logout</button>
+    </nav>
 
-      <nav id = "hamburgerNav">
-        <div id = "hamburgerNavWrapper">
-        <div class = "logo">Portfolio</div>
-        <div class = "hamburgerMenu">
-          <div class = "hamburgerIcon" onclick = "toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+    <!-- Logout Script -->
+    <script>
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = "Login.html";
+        }
+    </script>
 
-          <div class = "menuLinks">
-            <!-- <li><a href="#landing" onclick = "toggleMenu()">Home</a></li> -->
-            <li><a href="#homePage.html" onclick = "toggleMenu()">Home</a>></li>
-            <li><a href="#projects.html" onclick = "toggleMenu()">Projects</a></li>
-            <li><a href="#contact.html" onclick = "toggleMenu()">Contact Me</a></li>
-          </div>
-        </div>
-        </div>
-      </nav>
-
-            <button class="theme-toggle" onclick="toggleDarkMode()">
-                🌙 Dark Mode
-            </button>
-
-    <main>
-        <div class="container">
-            
-            <p>My first paragraph.</p>
-            <p>This is Project Page</p>
-            
-            <h1>Upload a File</h1>
-            <form action="upload.php" method="post" enctype="multipart/form-data" target="uploadFrame">
-                <input type="file" name="uploadedFile">
-                <input type="submit" value="Upload File">
-            </form>
-
-            <!-- Hidden iframe to process upload -->
-            <iframe name="uploadFrame" style="display: none;"></iframe>
-
-        </div>
-
-        <footer>
-            <nav id = "desktopNav">
-              <div class = "logo">Portfolio</div>
-              <div>
-                <ul class = "nav-links">
-                  <li><a href="#homePage.html">Home</a></li>
-                  <li><a href="#projects.html">Projects</a></li>
-                  <li><a href="#contact.html">Contact Me</a></li>
+    <!-- Hamburger Navigation -->
+    <nav id="hamburgerNav">
+        <div id="hamburgerNavWrapper">
+            <div class="logo">Portfolio</div>
+            <div class="hamburgerMenu">
+                <div class="hamburgerIcon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="menuLinks">
+                    <li><a href="HomePage.html" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="ProjectPage.html" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="LinksPage.html" onclick="toggleMenu()">Contact Me</a></li>
                 </ul>
-              </div>
-            </nav>
-          </footer>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="projects-container">
+            <!-- Search and Filter Section -->
+            <div class="search-filter-container">
+                <div class="search-container">
+                    <input type="text" id="projectSearch" placeholder="Search projects...">
+                </div>
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                    <button class="filter-btn" data-filter="backend">Backend</button>
+                </div>
+            </div>
+
+            <!-- Tools Section -->
+            <div class="skills-container">
+                <h2>Tools</h2>
+                <div class="skills-grid" id="skillsGrid">
+                    <!-- Skills will be populated automatically -->
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="web">
+                    <img src="project-images/project1.jpg" alt="Project 1" class="project-image">
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag" data-icon="html5.svg">HTML5</span>
+                            <span class="tech-tag" data-icon="css3.svg">CSS3</span>
+                            <span class="tech-tag" data-icon="javascript.svg">JavaScript</span>
+                        </div>
+                        <p>A responsive portfolio website showcasing my work and skills.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Live Demo</a>
+                            <a href="#" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="backend">
+                    <img src="project-images/project2.jpg" alt="Project 2" class="project-image">
+                    <div class="project-content">
+                        <h3>Task Management API</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag" data-icon="nodejs.svg">Node.js</span>
+                            <span class="tech-tag" data-icon="express.svg">Express</span>
+                            <span class="tech-tag" data-icon="mongodb.svg">MongoDB</span>
+                        </div>
+                        <p>RESTful API for managing tasks and projects.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Documentation</a>
+                            <a href="#" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Upload Section -->
+            <div class="upload-section">
+                <h2>Upload Project Files</h2>
+                <form action="upload.php" method="post" enctype="multipart/form-data" target="uploadFrame">
+                    <input type="file" name="uploadedFile">
+                    <input type="submit" value="Upload File" class="upload-btn">
+                </form>
+                <iframe name="uploadFrame" style="display: none;"></iframe>
+            </div>
+        </div>
+
+        
+        
     </main>
 
-    <!-- Theme JavaScript -->
+    <!-- Theme and Main Scripts -->
     <script src="javascript/theme.js"></script>
     <script src="homePage.js"></script>
-</body>
 
+    <script>
+        const user = localStorage.getItem('user');
+        if (user) {
+            document.getElementById('greeting').textContent = `Hello, ${user}!`;
+        }
+    </script>
+
+    <!-- Projects JavaScript -->
+    <script>
+        // Project filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const filter = button.dataset.filter;
+                filterProjects(filter);
+            });
+        });
+
+        function filterProjects(category) {
+            document.querySelectorAll('.project-card').forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Project search
+        document.getElementById('projectSearch').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            searchProjects(searchTerm);
+        });
+
+        function searchProjects(searchTerm) {
+            document.querySelectorAll('.project-card').forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const technologies = Array.from(card.querySelectorAll('.tech-tag'))
+                    .map(tag => tag.textContent.toLowerCase());
+
+                if (title.includes(searchTerm) || 
+                    description.includes(searchTerm) || 
+                    technologies.some(tech => tech.includes(searchTerm))) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize technologies/tools
+        function initializeTechnologies() {
+            const technologies = new Map();
+
+            document.querySelectorAll('.tech-tag').forEach(tag => {
+                const techName = tag.textContent;
+                const iconPath = tag.dataset.icon;
+                if (!technologies.has(techName)) {
+                    technologies.set(techName, iconPath);
+                }
+            });
+
+            const skillsGrid = document.getElementById('skillsGrid');
+            skillsGrid.innerHTML = '';
+
+            technologies.forEach((iconPath, techName) => {
+                const skillItem = document.createElement('div');
+                skillItem.className = 'skill-item';
+                skillItem.innerHTML = `
+                    <img src="skill-icons/${iconPath}" alt="${techName}">
+                    <span>${techName}</span>
+                `;
+                skillsGrid.appendChild(skillItem);
+            });
+        }
+
+        // Initialize when the page loads
+        document.addEventListener('DOMContentLoaded', initializeTechnologies);
+    </script>
+
+    <script src="javascript/theme.js"></script>
+
+</body>
 </html>
