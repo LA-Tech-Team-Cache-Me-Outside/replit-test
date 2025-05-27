@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Links Page</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/homePage.css">
     <link rel="stylesheet" href="css/simple.css">
     <link rel="stylesheet" href="css/themes.css">
 </head>
+    <link rel="stylesheet" href="css/LinksPage.css">
+    </head>
 
 <body>
 
@@ -61,51 +63,43 @@
 
     <!-- Main Content -->
     <main>
-        <h1>Links</h1>
+        <p class="links-sentence">Feel free to connect with me and check out my work!</p>
+        <div class="links-container">
         <section class="links-grouped">
             <div class="links">
                 <a href="https://www.linkedin.com" target="_blank">
-                    <img src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/linkedin-logo.png" alt="LinkedIn" width="100">
+                    <img src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/linkedin-logo.png" alt="LinkedIn">
                 </a>
                 <p>LinkedIn</p>
             </div>
 
             <div class="links">
                 <a href="https://github.com" target="_blank">
-                    <img src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/github-logo.png" alt="Github" width="100">
+                    <img src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/github-logo.png" alt="Github">
                 </a>
                 <p>Github</p>
             </div>
 
             <div class="links">
                 <a href="mailto:example@gmail.com" target="_blank">
-                    <img src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/email-logo.png" alt="email" width="100">
+                    <img src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/email-logo.png" alt="email">
                 </a>
                 <p>Email</p>
             </div>
 
+            <div class="links" onclick="window.open('https://j23-awsbucket.s3.us-east-2.amazonaws.com/sample-resumes_scs.pdf');" target="_blank">
+                    <img src="https://j23-awsbucket.s3.us-east-2.amazonaws.com/ResumeIcon.png" alt="Resume">
+                </a>
+                <p>Resume</p>
+            </div>
+
         </section>
+        </div>
     </main>
 
     <!-- Theme and Main Scripts -->
     <script src="javascript/theme.js"></script>
     <script src="homePage.js"></script>
-
-    <style>
-        /* Links Page Styles */
-        .links-grouped {
-            display: flex;
-            gap: 100px;
-            justify-content: center;
-            align-items: center;
-        }
-        .links {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-direction: row;
-        }
-    </style>
 
     <script>
         const user = localStorage.getItem('user');
